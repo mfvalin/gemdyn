@@ -2,11 +2,11 @@
 ! GEM - Library of kernel routines for the GEM numerical atmospheric model
 ! Copyright (C) 1990-2010 - Division de Recherche en Prevision Numerique
 !                       Environnement Canada
-! This library is free software; you can redistribute it and/or modify it 
+! This library is free software; you can redistribute it and/or modify it
 ! under the terms of the GNU Lesser General Public License as published by
 ! the Free Software Foundation, version 2.1 of the License. This library is
 ! distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY;
-! without even the implied warranty of MERCHANTABILITY or FITNESS FOR A 
+! without even the implied warranty of MERCHANTABILITY or FITNESS FOR A
 ! PARTICULAR PURPOSE. See the GNU Lesser General Public License for more details.
 ! You should have received a copy of the GNU Lesser General Public License
 ! along with this library; if not, write to the Free Software Foundation, Inc.,
@@ -31,7 +31,7 @@
 #include "ver.cdk"
 #include "schm.cdk"
 #include "cstv.cdk"
-
+#include "ptopo.cdk"
       integer :: i,j,k,km2, i0,j0,in,jn
       real*8  :: xx, x1, x2, x3, x4, w1, w2, w3, w4,den
       real*8  :: zd_z_8(l_nk+1)
@@ -41,9 +41,8 @@
       !---------------------------------------------------------------------
       zd_z_8(1)=Cstv_Ztop_8
       zd_z_8(2:l_nk+1)=Ver_z_8%t(1:l_nk)
-
 !$omp parallel private(i0,in,j0,jn,xx,x1,x2,x3,x4,&
-!$omp                  i,j,k,w1,w2,w3,w4,den)
+!$omp              km2,i,j,k,w1,w2,w3,w4,den)
       i0 = 1
       in = l_ni
       j0 = 1
@@ -66,7 +65,7 @@
          w2 = lag3(xx, x2, x1, x3, x4)
          w3 = lag3(xx, x3, x1, x2, x4)
          w4 = lag3(xx, x4, x1, x2, x3)
-         ! zdt=0 is not present in vector but this allow to use this 
+         ! zdt=0 is not present in vector but this allow to use this
          ! boundary condition anyway.
          km2=max(1,k-2)
          if(k.eq.2)w1=0.d0
@@ -80,11 +79,11 @@
       enddo
 !$omp enddo
 
-      !- Note zdot at top = 0     
+      !- Note zdot at top = 0
       k = 1
       w2 = (zd_z_8(k)-Ver_z_8%m(k)) / (zd_z_8(k)-zd_z_8(k+1))
 
-!$omp do     
+!$omp do
       do j = j0, jn
       do i = i0, in
          F_fld_m(i,j,1) = w2*F_fld_t(i,j,1)
@@ -92,11 +91,11 @@
       enddo
 !$omp enddo
 
-      !- Note  zdot at surface = 0  
+      !- Note  zdot at surface = 0
       k = l_nk
       w1 = (Ver_z_8%m(k)-zd_z_8(k+1)) / (zd_z_8(k)-zd_z_8(k+1))
 
-!$omp do     
+!$omp do
       do j = j0, jn
       do i = i0, in
          F_fld_m(i,j,l_nk) = w1*F_fld_t(i,j,l_nk-1)

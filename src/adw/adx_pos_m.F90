@@ -135,7 +135,7 @@ subroutine adx_pos_m( F_nb_iter    ,        &
                             F_ni,F_nj,F_aminx, F_amaxx, F_aminy, F_amaxy,k0,F_nk,F_nk_winds)
       endif
 
-!$omp parallel
+!$omp parallel private(k,j,i) shared (u_d,v_d,w_d)
       if(adx_trapeze_L) then
 !$omp do
          do k = max(1,k0),F_nk
@@ -172,7 +172,7 @@ subroutine adx_pos_m( F_nb_iter    ,        &
        call adx_trajex2 (F_px, F_py, F_xct1,F_yct1,F_zct1, &
                         F_xcth,F_ycth,F_zcth,i0,in,j0,jn,k0)
 
-!$omp parallel
+!$omp parallel private(k,j,i)
 !$omp do
       do k = k0,F_nk
          do j = j0,jn

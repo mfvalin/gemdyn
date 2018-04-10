@@ -2,11 +2,11 @@
 ! GEM - Library of kernel routines for the GEM numerical atmospheric model
 ! Copyright (C) 1990-2010 - Division de Recherche en Prevision Numerique
 !                       Environnement Canada
-! This library is free software; you can redistribute it and/or modify it 
+! This library is free software; you can redistribute it and/or modify it
 ! under the terms of the GNU Lesser General Public License as published by
 ! the Free Software Foundation, version 2.1 of the License. This library is
 ! distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY;
-! without even the implied warranty of MERCHANTABILITY or FITNESS FOR A 
+! without even the implied warranty of MERCHANTABILITY or FITNESS FOR A
 ! PARTICULAR PURPOSE. See the GNU Lesser General Public License for more details.
 ! You should have received a copy of the GNU Lesser General Public License
 ! along with this library; if not, write to the Free Software Foundation, Inc.,
@@ -19,13 +19,13 @@
       implicit none
 #include <arch_specific.hf>
 !
-!author 
+!author
 !     Lubos Spacek - rpn - oct 2005
 !
 !revision
 !
 !object
-!	
+!
 !arguments
 !	none
 !
@@ -97,6 +97,10 @@
                                (l_maxy-l_miny+1), &
                       Trp_12dmin, Trp_12dmax, G_nk, work_local, 1, 2 )
 !
+       do i= 1,G_ni
+       work_local(l_nj+1:l_maxy,1:trp_12dn ,i)= 0.d0
+       work_local(1:l_maxy, trp_12dn+1:trp_12dmax,i)= 0.d0
+       enddo
 !     x-direction
 !     ============
       call itf_fft_set(G_ni,'PERIODIC',pri8)
