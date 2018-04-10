@@ -145,7 +145,7 @@
 
 ! Update pw_* variables
 
-      call timing_start2 ( 69, 'PW_UPDATE', 60)
+      call timing_start2 ( 69, 'PW_UPDATE_HZD', 60)
       if (switch_on_UVW   .or. switch_on_vrtspng .or.             &
           switch_on_THETA .or. switch_on_TR .or. switch_on_smago) &
          call pw_update_GPW

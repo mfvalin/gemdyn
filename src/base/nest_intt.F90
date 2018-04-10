@@ -148,7 +148,7 @@
 !
 !     Temporal linear interpolation
 !      
-      call timing_start2 ( 70, 'NESTINTT', 10)
+      call timing_start2 ( 28, 'NESTINTT', 10)
 
       b = (tx - Lam_tdeb) / (Lam_tfin - Lam_tdeb)
       a = one - b
@@ -176,7 +176,7 @@
          tr (1:l_ni,1:l_nj,1:G_nk) = a*tr_deb(1:l_ni,1:l_nj,1:G_nk) + b*tr_fin(1:l_ni,1:l_nj,1:G_nk)
       end do
 
-      call timing_stop ( 70 )
+      call timing_stop ( 28 )
 !
 !     ---------------------------------------------------------------
 !

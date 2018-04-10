@@ -66,29 +66,31 @@
          call rpn_comm_barrier (RPN_COMM_ALLGRIDS, err)
          if (pe0_master_L) then
             err = clib_symlink ( trim(filen), trim(filen_link) )
-            write (6,1001) trim(Out_laststep_S),lctl_step      
+            write (6,1001) trim(Out_laststep_S),lctl_step,err
          endif
 
       endif
 
+      gem_muststop = .false.
       ! Get timeleft to determine if we can continue
-      if (pe0_master_L) then
-         filen=trim(Path_basedir_S)//'/time_left'
-
-         open (unf,file=trim(filen),access='SEQUENTIAL',&
-               status='OLD',iostat=err,form='FORMATTED')
-         if (err.eq.0) then
-            read (unf,'(e)',end=33,err=33) timeleft
-33          close(unf)
-         else
-            timeleft= huge(hugetype)
+      if (Lctl_cktimeleft_L) then
+         if (pe0_master_L) then
+            filen=trim(Path_basedir_S)//'/time_left'
+            open (unf,file=trim(filen),access='SEQUENTIAL',&
+                  status='OLD',iostat=err,form='FORMATTED')
+            if (err.eq.0) then
+               read (unf,'(e)',end=33,err=33) timeleft
+   33          close(unf)
+            else
+               timeleft= huge(hugetype)
+            endif
+            flag = (timeleft.lt.Step_maxwall)
          endif
-         flag = (timeleft.lt.Step_maxwall)
-      endif
 
-      call RPN_COMM_bcast (flag, 1, "MPI_LOGICAL",0,"MULTIGRID",err)
-      gem_muststop = flag
+         call RPN_COMM_bcast (flag, 1, "MPI_LOGICAL",0,"MULTIGRID",err)
+         gem_muststop = flag
       
+      endif
       if ( (Step_kount.gt.0) .and. .not. &
             (Init_mode_L .and. (Step_kount.ge.Init_halfspan)) ) &
            gem_muststop = gem_muststop .or. &
@@ -103,7 +105,7 @@
       call timing_stop (70)
 
  1001 format (' OUT_LAUNCHPOST: DIRECTORY output/',a, &
-              ' was released for postprocessing at timestep: ',i9)
+              ' was released for postprocessing at timestep: ',i9,' symlink err=',I4)
  1002 format (' SAVING A RESTART AT TIMESTEP: ',i7,' valid: ',a)
 !
 !     ---------------------------------------------------------------

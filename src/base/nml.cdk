@@ -93,7 +93,7 @@
       namelist /gem_cfgs/ Lam_blendoro_L
       namelist /gem_cfgs/ Lam_acidtest_L
 
-      namelist /gem_cfgs/ Lctl_debug_L
+      namelist /gem_cfgs/ Lctl_debug_L,Lctl_cktimeleft_L
       namelist /gem_cfgs/ Lctl_rxstat_S
 !Out3
       namelist /gem_cfgs/ Out3_cliph_L
@@ -238,7 +238,7 @@
       namelist /gem_cfgs_p/ Lam_toptt_L
       namelist /gem_cfgs_p/ Lam_blendoro_L
 !Lctl
-      namelist /gem_cfgs_p/ Lctl_debug_L
+      namelist /gem_cfgs_p/ Lctl_debug_L,Lctl_cktimeleft_L
       namelist /gem_cfgs_p/ Lctl_rxstat_S
 !Out3
       namelist /gem_cfgs_p/ Out3_cliph_L

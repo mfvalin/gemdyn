@@ -133,6 +133,7 @@
 
       Lctl_rxstat_S   = 'LCL_4'
       Lctl_debug_L    = .false.
+      Lctl_cktimeleft_L = .false.
 
       Grd_rcoef(1) = 1.0
       Grd_rcoef(2) = 1.0

@@ -31,6 +31,7 @@
 #include "psadj.cdk"
 #include "cstv.cdk"
 #include "iau.cdk"
+#include "rstr.cdk"
 
       integer err,i,j,istat
       logical, save :: done = .false.
@@ -50,6 +51,7 @@
       if ( Schm_psadj <= 2 ) then
          if ( Cstv_dt_8*F_kount <= Iau_period ) goto 999
          if ( ( Schm_psadj == 1 ) .and. done )  goto 999
+         if ( ( Schm_psadj == 1 ) .and. Rstri_rstn_L ) goto 999
       endif
 
       done= .true.
