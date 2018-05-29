@@ -1,3 +1,4 @@
+#if defined(INITIALIZE)
    real, dimension(:,:,:), pointer :: pxt => null()
    real, dimension(:,:,:), pointer :: pyt => null()
    real, dimension(:,:,:), pointer :: pzt => null()
@@ -7,6 +8,17 @@
    real, dimension(:,:,:), pointer :: pxmv => null()
    real, dimension(:,:,:), pointer :: pymv => null()
    real, dimension(:,:,:), pointer :: pzmv => null()
+#else
+   real, dimension(:,:,:), pointer :: pxt
+   real, dimension(:,:,:), pointer :: pyt
+   real, dimension(:,:,:), pointer :: pzt
+   real, dimension(:,:,:), pointer :: pxmu
+   real, dimension(:,:,:), pointer :: pymu
+   real, dimension(:,:,:), pointer :: pzmu
+   real, dimension(:,:,:), pointer :: pxmv
+   real, dimension(:,:,:), pointer :: pymv
+   real, dimension(:,:,:), pointer :: pzmv
+#endif
    common /adx_position_t/ pxt,pyt,pzt
    common /adx_position_mu/ pxmu,pymu,pzmu
    common /adx_position_mv/ pxmv,pymv,pzmv

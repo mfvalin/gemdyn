@@ -32,7 +32,10 @@
 #include "gmm.hf"
 #include "glb_ld.cdk"
 #include "lun.cdk"
+
+#define INITIALIZE
 #include "hzd.cdk"
+
 #include "tr3d.cdk"
 #include "vspng.cdk"
 #include "eq.cdk"

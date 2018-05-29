@@ -24,7 +24,9 @@
       character*(*)          , intent(IN)  :: F_datev
       type(vgrid_descriptor) , intent(OUT) :: F_vgd_src
 
+#define INITIALIZE
 #include "inp.cdk"
+
 #include "path.cdk"
 #include <clib_interface_mu.hf>
 #include <rmnlib_basics.hf>
