@@ -79,7 +79,8 @@
             open (unf,file=trim(filen),access='SEQUENTIAL',&
                   status='OLD',iostat=err,form='FORMATTED')
             if (err.eq.0) then
-               read (unf,'(e)',end=33,err=33) timeleft
+!              read (unf,'(e)',end=33,err=33) timeleft
+               read (unf,*,end=33,err=33) timeleft
    33          close(unf)
             else
                timeleft= huge(hugetype)

@@ -158,7 +158,8 @@
  7050 format (/,' FILE: ',A,' NOT AVAILABLE'/)
  7060 format (/,' Namelist &step NOT AVAILABLE in FILE: ',a/)
  7070 format (/,' NAMELIST &step IS INVALID IN FILE: ',a/)
- 8000 format (/,' MODEL ALARM SET TO: ',i,' secondes'/)
+!8000 format (/,' MODEL ALARM SET TO: ',i,' secondes'/)
+ 8000 format (/,' MODEL ALARM SET TO: ',i12,' secondes'/)
 
  9999 err = fclos (unf)
 !

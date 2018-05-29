@@ -113,7 +113,8 @@ End Interface
                            LAB, F_ip1(i), P2, P3,TYP, 'VV' )
             if ( (erru .lt. 0) .or. (errv .lt. 0) ) then
                err_fstlir= -1
-               write(6,'(2a,i,x,a,3i,x,a)') &
+!              write(6,'(2a,i,x,a,3i,x,a)') &
+               write(6,'(2a,i12,x,a,3i12,x,a)') &
                     'ERROR reading: ','UU/VV',Inp_cmcdate,LAB, &
                      F_ip1(i), P2, P3,TYP
             endif

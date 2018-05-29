@@ -87,7 +87,8 @@
  1000 format( &
            /,'CONTROL OF SPECTRAL NUDGING: (S/R SPN_MAIN)', &
            /,'==========================================='/)
- 1001 format(/' In SPN_MAIN, Applying spectral nudging at STEP NO ',I/)
+!1001 format(/' In SPN_MAIN, Applying spectral nudging at STEP NO ',I/)
+ 1001 format(/' In SPN_MAIN, Applying spectral nudging at STEP NO ',I12/)
 !
 !----------------------------------------------------------------------
 !

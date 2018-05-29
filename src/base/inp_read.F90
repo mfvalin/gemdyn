@@ -188,7 +188,8 @@
                           LAB, F_ip1(i), P2, P3,TYP, VAR )
             if (err .lt. 0) then
                err_fstlir= -1
-               write(6,'(2a,i,x,a,3i,x,a)') &
+!              write(6,'(2a,i,x,a,3i,x,a)') &
+               write(6,'(2a,i12,x,a,3i12,x,a)') &
                'ERROR reading: ',VAR,datev,LAB, F_ip1(i), P2, P3,TYP
             endif
             ! Remove the following line by 2021
