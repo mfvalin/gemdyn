@@ -32,10 +32,10 @@
             rb = adv_bsx_8(ii(nx)  )
             rc = adv_bsx_8(ii(nx)+1)
             rd = adv_bsx_8(ii(nx)+2)
-            p1 = triprd(F_x(n),rb,rc,rd)*adv_xabcd_8
-            p2 = triprd(F_x(n),ra,rc,rd)*adv_xbacd_8
-            p3 = triprd(F_x(n),ra,rb,rd)*adv_xcabd_8
-            p4 = triprd(F_x(n),ra,rb,rc)*adv_xdabc_8
+            p1 = triprd4(F_x(n),rb,rc,rd)*adv_xabcd_8
+            p2 = triprd4(F_x(n),ra,rc,rd)*adv_xbacd_8
+            p3 = triprd4(F_x(n),ra,rb,rd)*adv_xcabd_8
+            p4 = triprd4(F_x(n),ra,rb,rc)*adv_xdabc_8
 
             o2 = (ii(nz)-1)*adv_nijag + (ii(ny)-adv_int_j_off-1)*adv_nit + (ii(nx)-adv_int_i_off)
             o1 = o2-adv_nit
@@ -102,10 +102,10 @@
             rb = adv_bsy_8(ii(ny)  )
             rc = adv_bsy_8(ii(ny)+1)
             rd = adv_bsy_8(ii(ny)+2)
-            p1 = triprd(F_y(n),rb,rc,rd)*adv_yabcd_8
-            p2 = triprd(F_y(n),ra,rc,rd)*adv_ybacd_8
-            p3 = triprd(F_y(n),ra,rb,rd)*adv_ycabd_8
-            p4 = triprd(F_y(n),ra,rb,rc)*adv_ydabc_8
+            p1 = triprd4(F_y(n),rb,rc,rd)*adv_yabcd_8
+            p2 = triprd4(F_y(n),ra,rc,rd)*adv_ybacd_8
+            p3 = triprd4(F_y(n),ra,rb,rd)*adv_ycabd_8
+            p4 = triprd4(F_y(n),ra,rb,rc)*adv_ydabc_8
 
             b1 = p1 * b1 + p2 * b2 + p3 * b3 + p4 * b4
             c1 = p1 * c1 + p2 * c2 + p3 * c3 + p4 * c4
@@ -118,10 +118,10 @@
                rb = p_bsz_8(ii(nz)  )
                rc = p_bsz_8(ii(nz)+1)
                rd = p_bsz_8(ii(nz)+2)
-               p1 = triprd(F_z(n),rb,rc,rd)*p_zabcd_8(ii(nz)+1)
-               p2 = triprd(F_z(n),ra,rc,rd)*p_zbacd_8(ii(nz)+1)
-               p3 = triprd(F_z(n),ra,rb,rd)*p_zcabd_8(ii(nz)+1)
-               p4 = triprd(F_z(n),ra,rb,rc)*p_zdabc_8(ii(nz)+1)
+               p1 = triprd4(F_z(n),rb,rc,rd)*p_zabcd_8(ii(nz)+1)
+               p2 = triprd4(F_z(n),ra,rc,rd)*p_zbacd_8(ii(nz)+1)
+               p3 = triprd4(F_z(n),ra,rb,rd)*p_zcabd_8(ii(nz)+1)
+               p4 = triprd4(F_z(n),ra,rb,rc)*p_zdabc_8(ii(nz)+1)
 
                F_cub(n) = p1 * a1 + p2 * b1 + p3 * c1 + p4 * d1
              else 

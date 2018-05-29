@@ -62,6 +62,8 @@
               triprd,za,zb,zc,zd,p_z00_8
 
       triprd(za,zb,zc,zd)=(za-zb)*(za-zc)*(za-zd)
+      real*4 :: triprd4,za4
+      triprd4(za4,zb,zc,zd)=(za-zb)*(za-zc)*(za-zd)
 
       logical,save :: done_L=.FALSE.
 
