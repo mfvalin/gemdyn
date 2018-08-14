@@ -1,4 +1,3 @@
-#if defined(INITIALIZE)
       real, pointer, dimension (:,:,:) ::  pxt => null()
       real, pointer, dimension (:,:,:) ::  pyt => null()
       real, pointer, dimension (:,:,:) ::  pzt => null()
@@ -22,31 +21,7 @@
       real, pointer, dimension (:,:)    :: pxtn => null()
       real, pointer, dimension (:,:)    :: pytn => null()
       real, pointer, dimension (:,:)    :: pztn => null()
-#else
-      real, pointer, dimension (:,:,:) ::  pxt
-      real, pointer, dimension (:,:,:) ::  pyt
-      real, pointer, dimension (:,:,:) ::  pzt
 
-      real, pointer, dimension (:,:,:) ::  pxmu
-      real, pointer, dimension (:,:,:) ::  pymu
-      real, pointer, dimension (:,:,:) ::  pzmu
-      
-      real, pointer, dimension (:,:,:) ::  pxmv
-      real, pointer, dimension (:,:,:) ::  pymv
-      real, pointer, dimension (:,:,:) ::  pzmv
-      
-      real, pointer, dimension (:,:,:) ::  pxmu_s
-      real, pointer, dimension (:,:,:) ::  pymu_s
-      real, pointer, dimension (:,:,:) ::  pzmu_s
-
-      real, pointer, dimension (:,:,:) ::  pxmv_s
-      real, pointer, dimension (:,:,:) ::  pymv_s
-      real, pointer, dimension (:,:,:) ::  pzmv_s
-
-      real, pointer, dimension (:,:)    :: pxtn
-      real, pointer, dimension (:,:)    :: pytn
-      real, pointer, dimension (:,:)    :: pztn
-#endif
      common /adv_position_t/ pxt,pyt,pzt,pxtn,pytn,pztn
      common /adv_position_mu/ pxmu,pymu,pzmu
      common /adv_position_mv/ pxmv,pymv,pzmv

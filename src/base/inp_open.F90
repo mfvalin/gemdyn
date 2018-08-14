@@ -24,9 +24,7 @@
       character*(*)          , intent(IN)  :: F_datev
       type(vgrid_descriptor) , intent(OUT) :: F_vgd_src
 
-#define INITIALIZE
 #include "inp.cdk"
-
 #include "path.cdk"
 #include <clib_interface_mu.hf>
 #include <rmnlib_basics.hf>
@@ -51,8 +49,7 @@
          unf= 0
          if (fnom( unf,trim(fn),'SEQ+FMT+OLD',0 ) /= 0) unf= 0
          if (unf == 0) goto 33
-!        read (unf,'(i)',end=33) Inp_nfiles
-         read (unf,*,end=33) Inp_nfiles
+         read (unf,'(i)',end=33) Inp_nfiles
          if (Inp_nfiles == 0) goto 33
          allocate (Inp_list_unf(Inp_nfiles))
          Inp_list_unf= 0

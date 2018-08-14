@@ -41,10 +41,7 @@
 #include "lun.cdk"
 #include "lctl.cdk"
 #include "step.cdk"
-
-#define INITIALIZE
 #include "adv_pos.cdk"
-
 #include "vth.cdk"
 #include "adv.cdk"
 #include "adv_grid.cdk"

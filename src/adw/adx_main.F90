@@ -49,10 +49,7 @@ subroutine adx_main ( F_ud, F_vd, F_wd, F_ua, F_va, F_wa, F_wat, &
 #include "adx_gmm.cdk"
 #include "adx_dims.cdk"
 #include "adx_nml.cdk"
-
-#define INITIALIZE
 #include "adx_pos.cdk"
-
 #include "glb_ld.cdk"
 #include "orh.cdk"
 #include "schm.cdk"

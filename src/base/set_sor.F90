@@ -40,10 +40,7 @@
 #include "step.cdk"
 #include "lctl.cdk"
 #include "outd.cdk"
-
-#define INITIALIZE
 #include "outp.cdk"
-
 #include "outc.cdk"
 #include "hgc.cdk"
 #include "cstv.cdk"

@@ -60,15 +60,10 @@
                                         Hzd_wevec_8, Hzd_wuevec_8           ,&
                                         Hzd_xp2_8, Hzd_yp2_8, Hzd_yp2su_8   ,&
                                         Hzd_xevec_8, Hzd_xeval_8
-#if defined(INITIALIZE)
        real*8, dimension(:,:,:), pointer :: Hzd_geom_q => null()
        real*8, dimension(:,:,:), pointer :: Hzd_geom_u => null()
        real*8, dimension(:,:,:), pointer :: Hzd_geom_v => null()
-#else
-       real*8, dimension(:,:,:), pointer :: Hzd_geom_q 
-       real*8, dimension(:,:,:), pointer :: Hzd_geom_u 
-       real*8, dimension(:,:,:), pointer :: Hzd_geom_v 
-#endif
+
        common /Hzd_pntr/ Hzd_au_8  ,Hzd_cu_8  ,Hzd_deltau_8  ,&
                          Hzd_av_8  ,Hzd_cv_8  ,Hzd_deltav_8  ,&
                          Hzd_as_8  ,Hzd_cs_8  ,Hzd_deltas_8  ,&
